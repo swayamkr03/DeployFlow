@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: devopsdep
+  name: devopsdep
+  namespace: devops
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devopsdep
+  template:
+    metadata:
+      labels:
+        app: devopsdep
+    spec:
+      containers:
+      - image: swayam0312/deployflow:v1
+        name: deployflow
