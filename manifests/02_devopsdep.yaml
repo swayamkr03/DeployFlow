@@ -16,5 +16,5 @@ spec:
         app: devopsdep
     spec:
       containers:
-        - image: swayam0312/deployflow:70deacf656b2d4558494776381f5405f656674f9
+        - image: swayam0312/deployflow:8007509bc2835f3711902263364ef50e319a4462
           name: deployflow
