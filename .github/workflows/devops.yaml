@@ -63,4 +63,4 @@ jobs:
 
       - name: Syncing argocd application
         run: |
-          argocd app sync demoone
+          argocd app sync deployflow
