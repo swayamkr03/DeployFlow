@@ -41,3 +41,26 @@ jobs:
           git config user.email "swayamkr03@users.noreply.github.com"
           git commit -am "Updating image tag inside manifests using Actions"
           git push origin main
+
+  devops-cd:
+    needs: devops-ci
+    runs-on: self-hosted
+
+    steps:
+      - name: Installing Argo CD CLI in Runner
+        run: |
+          curl -kSsL -o argocd-linux-amd64 https://argocd-server.argocd/download/argocd-linux-amd64
+          sudo chmod 755 argocd-linux-amd64
+          sudo mv ./argocd-linux-amd64 /usr/local/bin/argocd
+
+      - name: Login via ArgoCD CLI
+        run: |
+          argocd login argocd-server.argocd \
+            --insecure \
+            --grpc-web \
+            --username admin \
+            --password "${{ secrets.ARGOCD_PASSWORD }}"
+
+      - name: Syncing argocd application
+        run: |
+          argocd app sync demoone

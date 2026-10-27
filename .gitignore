@@ -1,2 +1,6 @@
 __pycache__/
 *.py[cod]
+
+# Vim temporary files
+*.swp
+*.swo
