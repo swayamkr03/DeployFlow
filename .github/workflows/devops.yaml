@@ -1,0 +1,12 @@
+#Developing Github Actions Workflow for CI/CD
+
+#name: DevOps CICD Pipeline 
+
+#on: push
+
+#job:
+#  devops-ci:
+#    runs-on: ubuntu-latest
+
+#    steps:
+#    - name: 
